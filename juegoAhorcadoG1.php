@@ -335,8 +335,7 @@ function agregarJuego($coleccionJuegos,$puntos,$indicePalabra){
 */
 function mostrarPalabra($coleccionPalabras,$indicePalabra){
     //$coleccionPalabras[0]= array("palabra"=> "papa" , "pista" => "se cultiva bajo tierra", "puntosPalabra"=>7);
-    
-    $palabraAImprimir = $coleccionPalabras[$indicePalabra];
+        $palabraAImprimir = $coleccionPalabras[$indicePalabra];
     print_r($palabraAImprimir);
 }
 /**
@@ -367,6 +366,18 @@ function ordenarPalabras ($coleccionPalabras){
     }
 }
 
+/**
+ * realiza la opcion 4
+ * @param array $coleccionPalabras
+ * @param array $coleccionJuegos
+ */
+function elegirNroJuego($coleccionPalabras, $coleccionJuegos){
+    $min = 0;
+    $max = (count($coleccionPalabras))-1;
+    echo "Elija el numero de juego. Entre ".$min." y ".$max.": ";
+    $indiceJuego = trim(fgets(STDIN));
+    mostrarJuego($coleccionJuegos,$coleccionPalabras,$indiceJuego);
+}
 
 /* PROGRAMA PRINCIPAL */
 $coleccionPalabras=cargarPalabras();
@@ -389,9 +400,7 @@ do{
 		$coleccionPalabras = agrandarColeccion($coleccionPalabras);
 		break;
 	case 4: //Mostrar la información completa de un número de juego
-		echo("Ingrese un indice entre [$i-$j]: ");
-                $indiceJuego=trim(fgets(STDIN));
-		mostrarJuego($coleccionJuegos, $coleccionPalabras, $indiceJuego);
+		elegirNroJuego($coleccionPalabras, $coleccionJuegos);
 		break;
 	case 5: //Mostrar la información completa del primer juego con más puntaje	
 		$j=count($coleccionJuegos);
