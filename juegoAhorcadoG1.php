@@ -123,12 +123,12 @@ function agrandarColeccion ($coleccionPalabras){
     $palabraNueva = trim(fgets(STDIN));
     $chequeo = existePalabra($coleccionPalabras,$palabraNueva);
     if ($chequeo){
-        echo "ERROR.. La palabra ya existe en la coleccion..";
+        echo "\nERROR.. La palabra ya existe en la coleccion. ";
     }else{
         $i = (count($coleccionPalabras) +1);
-        echo "ingrese la pista de la nueva palabra";
+        echo "ingrese la pista de la nueva palabra: ";
         $nuevaPista = trim(fgets(STDIN));
-        echo "ingrese el puntaje de la nueva palabra";
+        echo "ingrese el puntaje de la nueva palabra: ";
         $nuevoPuntaje = trim(fgets(STDIN));
         $nuevoIngreso [$i]= ["palabra" => $palabraNueva, "pista" => $nuevaPista, "puntosPalabras" => $nuevoPuntaje];
         $coleccionPalabras = array_merge($coleccionPalabras,$nuevoIngreso);
