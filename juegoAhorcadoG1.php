@@ -63,7 +63,7 @@ function seleccionarOpcion(){
     echo "\n ( 4 ) Mostrar la información completa de un número de juego";
     echo "\n ( 5 ) Mostrar la información completa del primer juego con más puntaje";
     echo "\n ( 6 ) Mostrar la información completa del primer juego que supere un puntaje indicado por el usuario";
-    echo "\n ( 7 ) Mostrar la lista de palabras ordenada por orden alfabetico \n\n";
+    echo "\n ( 7 ) Mostrar la lista de palabras ordenada por orden alfabetico ";
     echo "\n ( 8 ) Salir del juego \n " ;
     echo "--------------------------------------------------------------\n" ;
     echo "su opcion es: " ;
@@ -355,7 +355,20 @@ function mostrarJuego($coleccionJuegos,$coleccionPalabras,$indiceJuego){
     echo "\n";
 }
 
+/*>>> Implementar las funciones necesarias para la opcion 7 del menú <<<*/
+/**
+ * @param array $coleccionPalabras
+ */
+function ordenarPalabras ($coleccionPalabras){
+    // array $palOrdenada
+    asort($coleccionPalabras); // ordena el array alfabeticamente
+    foreach ($coleccionPalabras as $palOrdenada) {
+        print_r($palOrdenada); // imprime el array ordenado
+    }
+}
 
+
+/* PROGRAMA PRINCIPAL */
 $coleccionPalabras=cargarPalabras();
 $coleccionJuegos=cargarJuegos();
 $cantIntentos=6; //cantidad de intentos que tendrá el jugador para adivinar la palabra.
@@ -406,16 +419,7 @@ do{
 		mostrarJuego($coleccionJuegos, $coleccionPalabras, $indiceJuego);
 		break;
 	case 7: //Mostrar la lista de palabras ordenada por orden alfabetico
-		$orden=[];
-		for($i=0;$i<$j;$i++){
-			$orden[$i]=$coleccionPalabras[$i]['palabra'];
-		}
-		sort($orden); //Ordena un array
-		$i=0;
-		foreach($orden as $palabra){
-			echo("($i) $palabra \n");
-			$i++;
-		}
+		ordenarPalabras ($coleccionPalabras);
 		break;
 	}
 }while($opcion != 8);
