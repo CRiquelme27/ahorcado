@@ -40,7 +40,7 @@ function cargarJuegos(){
 }
 /**
 * a partir de la palabra genera un arreglo para determinar si sus letras fueron o no descubiertas
-* @param string $palabra
+* @param string $palabra // probando github
 * @return array
 */
 function dividirPalabraEnLetras($palabra){
