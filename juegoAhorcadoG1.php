@@ -289,7 +289,7 @@ function jugar($coleccionPalabras, $indicePalabra, $cantIntentos){
         }
         $revelando = stringLetrasDescubiertas ($coleccionLetras);
         echo "Palabra a descubrir es: " . $revelando . "\n";
-        echo "--------------------------------------------------------------\n" ;
+        echo "\n--------------------------------------------------------------\n" ;
     }
     if($palabraFueDescubierta){
         //obtener puntaje:
