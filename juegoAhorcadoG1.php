@@ -298,6 +298,13 @@ function jugar($coleccionPalabras, $indicePalabra, $cantIntentos){
         echo "\n¡¡¡¡¡¡GANASTE " . $puntaje . " puntos!!!!!!\n";
     }else{
         echo "\n¡¡¡¡¡¡AHORCADO AHORCADO!!!!!!\n";
+        echo "=========
+        +---+
+        |   |
+        0   |
+       /|\  |
+       / \  |
+    ===========" ;
     }
     return $puntaje;
 }
