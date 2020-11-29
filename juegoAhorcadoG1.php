@@ -17,12 +17,13 @@ function cargarPalabras(){
   $coleccionPalabras[1]= array("palabra"=> "hepatitis" , "pista" => "enfermedad que inflama el higado", "puntosPalabra"=> 6);
   $coleccionPalabras[2]= array("palabra"=> "volkswagen" , "pista" => "marca de vehiculo", "puntosPalabra"=> 10);
   $coleccionPalabras[3]= array("palabra" => "starbucks" , "pista" => "compañia de cafe" , "puntosPalabra" => 12) ;
-  $coleccionPalabras[4]= array("palabra" => "alcahuete" , "pista" => "Alaba de forma exagerada con el fin de conseguir un beneficio", "puntosPalabra" => 15) ;
+  $coleccionPalabras[4]= array("palabra" => "alcahuete" , "pista" => "alaba de forma exagerada con el fin de conseguir un beneficio", "puntosPalabra" => 15) ;
   $coleccionPalabras[5]= array("palabra" => "explorer" , "pista" => "el mejor explorador de internet" , "puntosPalabra" => 10) ;
-  $coleccionPalabras[6]= array("palabra" => "pseudocodigo" , "pista" => "lenguaje para escribir un codigo antes de programar " , "puntosPalabra" => 20) ;
+  $coleccionPalabras[6]= array("palabra" => "pseudocodigo" , "pista" => "lenguaje para escribir de forma compacta e informal antes de programar. " , "puntosPalabra" => 22) ;
   
   return $coleccionPalabras;
 }
+
 /**
 * Almacena la cantidad de puntos que obtuvo en cada juego
 */
@@ -77,10 +78,10 @@ function seleccionarOpcion(){
     $respuesta = trim(fgets((STDIN))) ;
     if ($respuesta <= 8 && $respuesta > 0) {
         $opcion = $respuesta ;
+        return $opcion;
     } else{
         echo "Error, no ha selecionado una opcion valida \n " ;
     }
-    return $opcion;
 }
 
 /**
@@ -137,7 +138,7 @@ function agrandarColeccion ($coleccionPalabras){
     $palabraNueva = trim(fgets(STDIN));
     $chequeo = existePalabra($coleccionPalabras,$palabraNueva);
     if ($chequeo){
-        echo "\nERROR.. La palabra ya existe en la coleccion. ";
+        echo "ERROR.. La palabra ya existe en la coleccion. \n";
     }else{
         $i = (count($coleccionPalabras) +1);
         echo "ingrese la pista de la nueva palabra: ";
@@ -376,10 +377,15 @@ function ordenarPalabras ($coleccionPalabras){
  */
 function elegirNroJuego($coleccionPalabras, $coleccionJuegos){
     $min = 0;
-    $max = (count($coleccionPalabras))-1;
+    $max = (count($coleccionJuegos))-1;
     echo "Elija el numero de juego. Entre ".$min." y ".$max.": ";
     $indiceJuego = trim(fgets(STDIN));
-    mostrarJuego($coleccionJuegos,$coleccionPalabras,$indiceJuego);
+    if ( $min <= $indiceJuego && $indiceJuego <= $max){
+        mostrarJuego($coleccionJuegos, $coleccionPalabras, $indiceJuego);
+    } else {
+        echo "Ingrese un numero dentro de los indices indicados. \n";
+    }
+    
 }
 
 /*>>> Implementar las funciones necesarias para la opcion 5 del menú <<<*/
@@ -466,8 +472,8 @@ do{
         $coleccionJuegos = jugarAleatorio ($coleccionPalabras, $coleccionJuegos, CANT_INTENTOS);
 		break;
 	case 2: //Jugar con una palabra elegida
-		$indicePalabra=solicitarIndiceEntre($i, $j);
-		$puntos=jugar($coleccionPalabras,$indicePalabra, $cantIntentos);
+		$indicePalabra = solicitarIndiceEntre ($i, $j);
+		$puntos = jugar($coleccionPalabras, $indicePalabra, CANT_INTENTOS);
 		break;
 	case 3: //Agregar una palabra al listado
 		$coleccionPalabras = agrandarColeccion($coleccionPalabras);
