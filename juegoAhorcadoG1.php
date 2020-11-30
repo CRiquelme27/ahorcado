@@ -464,6 +464,24 @@ function juegoMayorAlPuntaje ($coleccionJuegos, $coleccionPalabras){
     }
 }
 
+/**
+ * realiza la opcion 2, jugar eligiendo el indice de palabra
+ * @param array $coleccionJuegos
+ * @param array $coleccionPalabras
+ * @param int $cantIntentos
+ * @return array
+ */
+function jugarEligiendoIndice ($coleccionJuegos, $coleccionPalabras, $cantIntentos){
+    $i = 0;
+    $j = count ($coleccionPalabras) - 1;
+    $indicePalabra = solicitarIndiceEntre ($i, $j);
+    $puntos = jugar($coleccionPalabras, $indicePalabra, $cantIntentos);
+    $coleccionJuegos = agregarJuego($coleccionJuegos, $puntos, $indicePalabra);
+    return ($coleccionJuegos);
+}
+
+
+ 
 
 
 /* PROGRAMA PRINCIPAL */
@@ -479,8 +497,7 @@ do{
         $coleccionJuegos = jugarAleatorio ($coleccionPalabras, $coleccionJuegos, CANT_INTENTOS);
 		break;
 	case 2: //Jugar con una palabra elegida
-		$indicePalabra = solicitarIndiceEntre ($i, $j);
-		$puntos = jugar($coleccionPalabras, $indicePalabra, CANT_INTENTOS);
+		$coleccionJuegos = jugarEligiendoIndice ($coleccionJuegos, $coleccionPalabras, CANT_INTENTOS);
 		break;
 	case 3: //Agregar una palabra al listado
 		$coleccionPalabras = agrandarColeccion($coleccionPalabras);
