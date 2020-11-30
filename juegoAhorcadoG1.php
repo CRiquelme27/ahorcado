@@ -49,7 +49,7 @@ function dividirPalabraEnLetras($palabra){
     
     /*>>> Completar para generar la estructura de datos b) indicada en el enunciado. 
           recuerde que los string pueden ser recorridos como los arreglos.  <<<*/
-    $n = strlen($palabra);
+    $n = strlen($palabra);              //strlen, obtiene la longitud de un string 
     for ($i = 0; $i < $n; $i++){
         $arregloPalabraDividida[$i] = array( "letra" => $palabra[$i] , "descubierta" => false );
     }
@@ -146,8 +146,8 @@ function agrandarColeccion ($coleccionPalabras){
         echo "ingrese el puntaje de la nueva palabra: ";
         $nuevoPuntaje = trim(fgets(STDIN));
         $nuevoIngreso [$i]= ["palabra" => $palabraNueva, "pista" => $nuevaPista, "puntosPalabras" => $nuevoPuntaje];
-        $coleccionPalabras = array_merge($coleccionPalabras,$nuevoIngreso);
-    };
+        $coleccionPalabras = array_merge($coleccionPalabras,$nuevoIngreso);     //array_merge, Combina dos o ms arrays
+    }
     return $coleccionPalabras;
 }
 /**
@@ -205,8 +205,8 @@ function solicitarLetra(){
     $letraCorrecta = false;
     do{
         echo "Ingrese una letra: ";
-        $letra = strtolower(trim(fgets(STDIN))); // transforma un string a minuscula
-        if(strlen($letra)!=1){ // cuenta la cantidad de caracteres que tiene un string
+        $letra = strtolower(trim(fgets(STDIN))); // strtolower, transforma un string a minuscula
+        if(strlen($letra)!=1){ // strlen, cuenta la cantidad de caracteres que tiene un string
             echo "Debe ingresar 1 letra!\n";
         }else{
             $letraCorrecta = true;
@@ -286,8 +286,8 @@ function jugar($coleccionPalabras, $indicePalabra, $cantIntentos){
             $palabraFueDescubierta = palabraDescubierta($coleccionLetras);
         } else{
             $cantIntentos--;
-            switch($cantIntentos){
-                case 5:
+            switch($cantIntentos){      //switch, similar al if
+                case 5: 
                     echo "              +---+\n";
                     echo "              |   |\n";
                     echo "              0   |\n";
@@ -296,7 +296,7 @@ function jugar($coleccionPalabras, $indicePalabra, $cantIntentos){
                     echo "                  |\n";
                     echo "=================================\n" ;
                     echo "la letra - " . $letra . " - NO pertenece a la palabra. Quedan " . $cantIntentos . " intentos. \n";
-                break;
+                break;          //break, finaliza la ejecucion de las estructuras
                 case 4:
                     echo "              +---+\n";
                     echo "              |   |\n";
