@@ -286,7 +286,59 @@ function jugar($coleccionPalabras, $indicePalabra, $cantIntentos){
             $palabraFueDescubierta = palabraDescubierta($coleccionLetras);
         } else{
             $cantIntentos--;
-            echo "la letra - " . $letra . " - NO pertenece a la palabra. Quedan " . $cantIntentos . " intentos. \n";
+            switch($cantIntentos){
+                case 5:
+                    echo "              +---+\n";
+                    echo "              |   |\n";
+                    echo "              0   |\n";
+                    echo "                  |\n";
+                    echo "                  |\n";
+                    echo "                  |\n";
+                    echo "=================================\n" ;
+                    echo "la letra - " . $letra . " - NO pertenece a la palabra. Quedan " . $cantIntentos . " intentos. \n";
+                break;
+                case 4:
+                    echo "              +---+\n";
+                    echo "              |   |\n";
+                    echo "              0   |\n";
+                    echo "              |   |\n";
+                    echo "                  |\n";
+                    echo "                  |\n";
+                    echo "=================================\n" ;
+                    echo "la letra - " . $letra . " - NO pertenece a la palabra. Quedan " . $cantIntentos . " intentos. \n";
+                break;
+                case 3:
+                    echo "              +---+\n";
+                    echo "              |   |\n";
+                    echo "              0   |\n";
+                    echo "             /|   |\n";
+                    echo "                  |\n";
+                    echo "                  |\n";
+                    echo "=================================\n" ;
+                    echo "la letra - " . $letra . " - NO pertenece a la palabra. Quedan " . $cantIntentos . " intentos. \n";
+                break;
+                case 2:
+                    echo "              +---+\n";
+                    echo "              |   |\n";
+                    echo "              0   |\n";
+                    echo "             /|\  |\n";
+                    echo "                  |\n";
+                    echo "                  |\n";
+                    echo "=================================\n" ;
+                    echo "la letra - " . $letra . " - NO pertenece a la palabra. Quedan " . $cantIntentos . " intentos. \n";
+                break;
+                case 1:
+                    echo "              +---+\n";
+                    echo "              |   |\n";
+                    echo "              0   |\n";
+                    echo "             /|\  |\n";
+                    echo "             /    |\n";
+                    echo "                  |\n";
+                    echo "=================================\n" ;
+                    echo "la letra - " . $letra . " - NO pertenece a la palabra. Quedan " . $cantIntentos . " intentos. \n";
+                break;
+            }
+            
         }
         $revelando = stringLetrasDescubiertas ($coleccionLetras);
         echo "Palabra a descubrir es: " . $revelando . "\n";
@@ -477,7 +529,7 @@ function jugarEligiendoIndice ($coleccionJuegos, $coleccionPalabras, $cantIntent
     $indicePalabra = solicitarIndiceEntre ($i, $j);
     $puntos = jugar($coleccionPalabras, $indicePalabra, $cantIntentos);
     $coleccionJuegos = agregarJuego($coleccionJuegos, $puntos, $indicePalabra);
-    return ($coleccionJuegos);
+    return $coleccionJuegos;
 }
 
 
