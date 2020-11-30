@@ -298,13 +298,13 @@ function jugar($coleccionPalabras, $indicePalabra, $cantIntentos){
         echo "\n¡¡¡¡¡¡GANASTE " . $puntaje . " puntos!!!!!!\n";
     }else{
         echo "\n¡¡¡¡¡¡AHORCADO AHORCADO!!!!!!\n";
-        echo "=========
-        +---+
-        |   |
-        0   |
-       /|\  |
-       / \  |
-    ===========" ;
+        echo "              +---+\n";
+        echo "              |   |\n";
+        echo "              0   |\n";
+        echo "             /|\  |\n";
+        echo "             / \  |\n";
+        echo "                  |\n";
+        echo "=================================\n" ;
     }
     return $puntaje;
 }
@@ -372,8 +372,8 @@ function mostrarJuego($coleccionJuegos,$coleccionPalabras,$indiceJuego){
 function ordenarPalabras ($coleccionPalabras){
     // array $palOrdenada
     asort($coleccionPalabras); // ordena el array alfabeticamente
-    foreach ($coleccionPalabras as $palOrdenada) {
-        print_r($palOrdenada); // imprime el array ordenado
+    foreach ($coleccionPalabras as $i) { // recorre el array iterando sobre $i, de esta forma va imprimiendo cada elemento desde 0 hasta el ultimo.
+        print_r($i); // imprime el array ordenado
     }
 }
 
