@@ -356,7 +356,8 @@ function jugar($coleccionPalabras, $indicePalabra, $cantIntentos){
         echo "             /|\  |\n";
         echo "             / \  |\n";
         echo "                  |\n";
-        echo "=================================\n" ;
+        echo "=================================\n" ; 
+        echo "La palabra era: " . $pal=$coleccionPalabras[$indicePalabra]["palabra"] ."\n";
     }
     return $puntaje;
 }
