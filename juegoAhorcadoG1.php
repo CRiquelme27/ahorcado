@@ -488,8 +488,6 @@ function jugarEligiendoIndice ($coleccionJuegos, $coleccionPalabras, $cantIntent
 $coleccionPalabras = cargarPalabras();
 $coleccionJuegos = cargarJuegos();
 define("CANT_INTENTOS", 6); //Constante en php para cantidad de intentos que tendrá el jugador para adivinar la palabra.
-$i = 0;
-$j = count($coleccionPalabras) -1;
 do{
 	$opcion=seleccionarOpcion();
 	switch($opcion){
