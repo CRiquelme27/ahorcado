@@ -145,7 +145,7 @@ function agrandarColeccion ($coleccionPalabras){
         $nuevaPista = trim(fgets(STDIN));
         echo "ingrese el puntaje de la nueva palabra: ";
         $nuevoPuntaje = trim(fgets(STDIN));
-        $nuevoIngreso [$i]= ["palabra" => $palabraNueva, "pista" => $nuevaPista, "puntosPalabras" => $nuevoPuntaje];
+        $nuevoIngreso [$i]= ["palabra" => $palabraNueva, "pista" => $nuevaPista, "puntosPalabra" => $nuevoPuntaje];
         $coleccionPalabras = array_merge($coleccionPalabras,$nuevoIngreso);     //array_merge, Combina dos o ms arrays
     }
     return $coleccionPalabras;
@@ -423,11 +423,8 @@ function mostrarJuego($coleccionJuegos,$coleccionPalabras,$indiceJuego){
  * @param array $coleccionPalabras
  */
 function ordenarPalabras ($coleccionPalabras){
-    // array $palOrdenada
     asort($coleccionPalabras); // ordena el array alfabeticamente
-    foreach ($coleccionPalabras as $i) { // recorre el array iterando sobre $i, de esta forma va imprimiendo cada elemento desde 0 hasta el ultimo.
-        print_r($i); // imprime el array ordenado
-    }
+    print_r($coleccionPalabras); // imprime el array ordenado
 }
 
 /**
