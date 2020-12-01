@@ -567,5 +567,3 @@ do{
 		break;
 	}
 }while($opcion != 8);
-
-//Hola, soy Daiana
