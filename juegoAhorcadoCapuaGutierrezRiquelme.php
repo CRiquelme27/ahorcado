@@ -2,9 +2,9 @@
 /******************************************
 *Completar:
 * NOMBRE Y APELLIDOS - LEGAJOS
-*Daiana Nahir Capua - FAI-3095
+*Daiana Nahir Capua -      FAI-3095
 *Fernando Gutierrez Cruz - FAI-3082
-*Cristian Riquelme - FAI-2744
+*Cristian Riquelme -       FAI-2744
 ******************************************/
 
 /**
